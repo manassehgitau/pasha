@@ -1,0 +1,469 @@
+{
+	"info": {
+		"_postman_id": "0e360fd4-adf4-4e95-9d56-780a36736fcb",
+		"name": "Pasha (DRF)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43112290"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"charlesgitau\",\n    \"email\": \"charlesgitau@gmail.com\",\n    \"password\": \"manasseh1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}accounts/api/register/",
+							"host": [
+								"{{base_url}}accounts"
+							],
+							"path": [
+								"api",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"charlesgitau\",\n    \"password\": \"manasseh1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}accounts/api/login/",
+							"host": [
+								"{{base_url}}accounts"
+							],
+							"path": [
+								"api",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "profiles",
+			"item": [
+				{
+					"name": "my_profile",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"janesmith\",\n    \"password\": \"manasseh1234\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}accounts/api/profile/",
+							"host": [
+								"{{base_url}}accounts"
+							],
+							"path": [
+								"api",
+								"profile",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"bio\": \"Drip star for ever\",\n    \"location\": \"Kisumu\",\n    \"contact\": \"2547111111111\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}accounts/api/update_profile/",
+							"host": [
+								"{{base_url}}accounts"
+							],
+							"path": [
+								"api",
+								"update_profile",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Posts and Comments",
+			"item": [
+				{
+					"name": "Like",
+					"item": [
+						{
+							"name": "like post",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"is_liked\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}feed/api/posts/1/like/",
+									"host": [
+										"{{base_url}}feed"
+									],
+									"path": [
+										"api",
+										"posts",
+										"1",
+										"like",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Like (posts)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"is_liked\": true\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}feed/api/posts/1/unlike/",
+									"host": [
+										"{{base_url}}feed"
+									],
+									"path": [
+										"api",
+										"posts",
+										"1",
+										"unlike",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "create post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"What is DRF?\",\n    \"body\": \"This is used to develop APIs\",\n    \"images\": null \n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}feed/api/create_post/",
+							"host": [
+								"{{base_url}}feed"
+							],
+							"path": [
+								"api",
+								"create_post",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get post details",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"My First API Post\",\n    \"body\": \"This is the content of my first post created via the API.\",\n    \"images\": null \n}\n"
+						},
+						"url": {
+							"raw": "{{base_url}}feed/api/posts/3/",
+							"host": [
+								"{{base_url}}feed"
+							],
+							"path": [
+								"api",
+								"posts",
+								"3",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all comments",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}feed/api/posts/1/comments/",
+							"host": [
+								"{{base_url}}feed"
+							],
+							"path": [
+								"api",
+								"posts",
+								"1",
+								"comments",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\": \"Nice post on APis\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}feed/api/posts/1/create_comment/",
+							"host": [
+								"{{base_url}}feed"
+							],
+							"path": [
+								"api",
+								"posts",
+								"1",
+								"create_comment",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get comment detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\": \"Lovely Post\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}feed/api/comments/2/",
+							"host": [
+								"{{base_url}}feed"
+							],
+							"path": [
+								"api",
+								"comments",
+								"2",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "enter_your_base_url",
+			"type": "string"
+		},
+		{
+			"key": "access_token",
+			"value": "enter_your_access_token",
+			"type": "string"
+		},
+		{
+			"key": "refresh_token",
+			"value": "enter_your_refresh_token",
+			"type": "string"
+		}
+	]
+}
