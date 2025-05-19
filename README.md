@@ -45,7 +45,7 @@ Pasha is a social media networking application designed for sharing posts, comme
 
 1.  **Clone the repository:**
     ```bash
-    git clone <your-repository-url>
+    git clone https://github.com/manassehgitau/pasha.git
     cd pasha
     ```
 
