@@ -131,14 +131,155 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}accounts/api/update_profile/",
+							"raw": "{{base_url}}accounts/api/profile/update/",
 							"host": [
 								"{{base_url}}accounts"
 							],
 							"path": [
 								"api",
-								"update_profile",
+								"profile",
+								"update",
 								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Interactions",
+			"item": [
+				{
+					"name": "follow user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}accounts/api/users/1/follow/",
+							"host": [
+								"{{base_url}}accounts"
+							],
+							"path": [
+								"api",
+								"users",
+								"1",
+								"follow",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "unfollow user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}accounts/api/users/1/unfollow/",
+							"host": [
+								"{{base_url}}accounts"
+							],
+							"path": [
+								"api",
+								"users",
+								"1",
+								"unfollow",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list followers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}accounts/api/users/1/followers/",
+							"host": [
+								"{{base_url}}accounts"
+							],
+							"path": [
+								"api",
+								"users",
+								"1",
+								"followers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}accounts/api/search/users/?query=testuser",
+							"host": [
+								"{{base_url}}accounts"
+							],
+							"path": [
+								"api",
+								"search",
+								"users",
+								""
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "testuser"
+								}
 							]
 						}
 					},
